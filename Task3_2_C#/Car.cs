@@ -51,17 +51,6 @@ namespace Task3_2_C_
             }
         }
 
-        public void ChangeWheels()
-        {
-            for(int i = 0; i < this.wheels.Length; i++)
-            {
-                if (!wheels[i].IsGood)
-                {
-                    Console.WriteLine($"Необходимо сменить колесо {i+1}.");
-                }
-            }
-        }
-
         public void testingWeals(Wheel[] wheels)
         {
             for (int i = 0; i < this.wheels.Length; i++)
@@ -78,12 +67,16 @@ namespace Task3_2_C_
             bool flag;
             if (way % 100 == 0)
             {
-                flag = new Random().Next(2) == 1;
+                Random rnd = new Random();
+                flag = rnd.Next(0, 2) == 1;
                 if (flag)
                 {
-                    Random rnd = new Random();
-                    int randNum = rnd.Next(0, 3);
+                    int randNum = rnd.Next(0, 4);
                     wheels[randNum].IsGood = false;
+                }
+                else
+                {
+                    Console.WriteLine("Смена колес не требуется. Все целы!");
                 }
             }
             else
